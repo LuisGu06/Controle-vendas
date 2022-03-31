@@ -10,7 +10,7 @@ public class Cliente {
     private String celular;
     private String telefone;
     private String cep;
-    private String enderco;
+    private String endereco;
     private String email;
     private String bairro;
     private int numero;
@@ -66,12 +66,12 @@ public class Cliente {
         this.cep = cep;
     }
 
-    public String getEnderco() {
-        return enderco;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEnderco(String enderco) {
-        this.enderco = enderco;
+    public void setEndereco(String enderco) {
+        this.endereco = enderco;
     }
 
     public String getEmail() {

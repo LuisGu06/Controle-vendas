@@ -5,6 +5,9 @@
  */
 package visao;
 
+import dao.ClientesDAO;
+import modelo.Cliente;
+
 /**
  *
  * @author teclab
@@ -118,6 +121,12 @@ public class TelaCliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Celular:");
 
+        ctnome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctnomeActionPerformed(evt);
+            }
+        });
+
         btpesquisar.setMnemonic('P');
         btpesquisar.setText("Pesquisar");
         btpesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +152,12 @@ public class TelaCliente extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("N°:");
+
+        ctendereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ctenderecoActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Bairro");
@@ -387,6 +402,11 @@ public class TelaCliente extends javax.swing.JFrame {
         btsalvar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btsalvar.setMnemonic('s');
         btsalvar.setText("Salvar");
+        btsalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsalvarActionPerformed(evt);
+            }
+        });
 
         bteditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bteditar.setMnemonic('E');
@@ -447,6 +467,34 @@ public class TelaCliente extends javax.swing.JFrame {
     private void cbufActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbufActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbufActionPerformed
+
+    private void btsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalvarActionPerformed
+        Cliente obj = new Cliente();
+        obj.setNome(ctnome.getText());
+        obj.setRg(cfrg.getText());
+        obj.setCpf(cfcpf.getText());
+        obj.setEmail(ctemail.getText());
+        obj.setTelefone(cftelefone.getText());
+        obj.setCelular(cfcelular.getText());
+        obj.setCep(cfcep.getText());
+        obj.setEndereco(ctendereco.getText());
+        obj.setNumero(Integer.parseInt(ctn.getText()));
+        obj.setComplemento(ctcomple.getText());
+        obj.setBairro(ctbairro.getText());
+        obj.setCidade(ctcidade.getText());
+        obj.setUf(cbuf.getSelectedItem().toString());
+        
+        ClientesDAO dao =new ClientesDAO();
+        dao.cadatrarCliente(obj);
+    }//GEN-LAST:event_btsalvarActionPerformed
+
+    private void ctnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctnomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctnomeActionPerformed
+
+    private void ctenderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctenderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ctenderecoActionPerformed
 
     /**
      * @param args the command line arguments
